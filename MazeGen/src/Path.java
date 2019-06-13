@@ -3,12 +3,13 @@ public class Path {
     boolean WallN, WallS, WallW, WallE;
     boolean border = false;
     boolean marked = false;
-    private int x, y;
+    private int row = 0;
+    private int col = 0;
 
-    Path(int x, int y) {
+    Path(int row, int col) {
 
-        this.x = x;
-        this.y = y;
+        this.row = row;
+        this.col = col;
 
         this.WallE = true;
         this.WallN = true;
@@ -16,65 +17,65 @@ public class Path {
         this.WallW = true;
     }
 
-    Path(){
+    Path() {
         this.border = true;
     }
 
 
-    public boolean isNotBorder(){
+    public boolean isNotBorder() {
         return !border;
     }
 
-    public boolean isNotMarked(){
+    public boolean isNotMarked() {
         return !marked;
     }
 
-    public void setMarked(){
+    public void setMarked() {
         marked = true;
     }
 
-    public boolean hasWallN(){
+    public boolean hasWallN() {
         return WallN;
     }
 
-    public boolean hasWallS(){
+    public boolean hasWallS() {
         return WallS;
     }
 
-    public boolean hasWallE(){
+    public boolean hasWallE() {
         return WallE;
     }
 
-    public boolean hasWallW(){
+    public boolean hasWallW() {
         return WallW;
     }
 
 
-    public void removeWallN(Path other){
+    public void removeWallN(Path other) {
         this.WallN = false;
         other.WallS = false;
     }
 
-    public void removeWallS(Path other){
+    public void removeWallS(Path other) {
         this.WallS = false;
         other.WallN = false;
     }
 
-    public void removeWallW(Path other){
+    public void removeWallW(Path other) {
         this.WallW = false;
         other.WallE = false;
     }
 
-    public void removeWallE(Path other){
+    public void removeWallE(Path other) {
         this.WallE = false;
         other.WallW = false;
     }
 
-    public int getX(){
-        return this.x;
+    public int getRow() {
+        return this.row;
     }
 
-    public int getY(){
-        return this.y;
+    public int getCol() {
+        return this.col;
     }
 }
